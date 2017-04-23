@@ -1,15 +1,38 @@
 <head>
     <title>CE419</title>
+    <style>
+        .col1 {
+            display: inline-block;
+            width: 32%;
+            padding: 5px;
+            box-sizing: border-box;
+            vertical-align: top;
+        }
+    </style>
 </head>
-
 <body>
-    <h1>{{ title }}</h1>
-    <h2>Welcome!</h2>
+<h1>{{ title }}</h1>
 
+<div class="col1">
+    <h2>Students</h2>
+    {% for year, student_list in students.items %}
+        <h3>{{ year }}:</h3>
+        <ul>
+            {% for student in student_list %}
+                <li>{{ student.stdid }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</div>
+<div class="col1">
+    <h2>Courses</h2>
     <ul>
-        {% for student in students %}
-            <li>{{ student.stdid }}</span>
-            </li>
-        {% endfor %}
+    {% for course in courses %}
+        <li>{{ course.name }} ({{ course.get_assignments_count }})</li>
+    {% endfor %}
     </ul>
+</div>
+<div class="col1">
+    <h2>Grades</h2>
+</div>
 </body>

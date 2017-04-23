@@ -20,5 +20,6 @@ from ce419a.public import views
 
 urlpatterns = [
     url(r'^$', views.home),
+    url(r'^students/add$', views.student_add),
     url(r'^admin/', admin.site.urls),
 ]
