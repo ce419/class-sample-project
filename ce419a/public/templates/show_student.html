@@ -1,0 +1,20 @@
+<style>
+    h2 {
+        color: {{ student.get_color }};
+    }
+</style>
+<link rel="stylesheet" href="style.css">
+
+<h1>CE419</h1>
+
+<h2>
+    Welcome Student#{{ student.stdid }}</h2>
+
+<h3>{{ student.first_name }} {{ student.last_name }}</h3>
+
+<h4><a href="/">back</a></h4>
+
+<script>
+    stdid = '{{ student.stdid }}';
+</script>
+<script src="a.js"></script>

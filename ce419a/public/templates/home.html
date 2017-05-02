@@ -15,11 +15,14 @@
 
 <div class="col1">
     <h2>Students</h2>
+    <h4><a href="/students/add">Add Student</a></h4>
     {% for year, student_list in students.items %}
         <h3>{{ year }}:</h3>
         <ul>
             {% for student in student_list %}
-                <li>{{ student.stdid }}</li>
+                <li style="color: {{ student.get_color }}">
+                    <a href="/students/{{ student.stdid }}/">{{ student.stdid }}</a>
+                </li>
             {% endfor %}
         </ul>
     {% endfor %}

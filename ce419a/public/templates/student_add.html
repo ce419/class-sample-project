@@ -4,9 +4,9 @@
 <body>
 <h1>Add Student</h1>
 
-<form method="get">
+<form method="post">
     {% csrf_token %}
-    <input type="text" name="q" placeholder="search..." />
+    {{ form.as_p }}
     <button type="submit">Submit</button>
 </form>
 </body>

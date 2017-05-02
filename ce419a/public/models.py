@@ -8,6 +8,14 @@ class Student(models.Model):
     year = models.IntegerField(default=0)
     courses = models.ManyToManyField('Course')
 
+    def get_color(self):
+        import random
+
+        color = '#'
+        for i in range(6):
+            color += random.choice('0987654321ABCDEF')
+        return color
+
     def get_std_id(self):
         return self.stdid
 

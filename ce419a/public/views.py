@@ -19,7 +19,6 @@ def home(request):
             d[student.year] = []
         d[student.year].append(student)
 
-    print(d)
     return render(request, 'home.html', {
         'title': 'CE419',
         'students': d,
@@ -31,11 +30,18 @@ def student_add(request):
     if request.method == 'POST':
         form = StudentForm(request.POST)
         if form.is_valid():
-            student = form.save()
-            # messages.add_message(request, messages.SUCCESS, '')
+            s = form.save()
     else:
         form = StudentForm()
 
     return render(request, 'student_add.html', {
         'form': form,
+    })
+
+
+def show_student(request, stdid):
+    student = Student.objects.get(stdid=stdid)
+
+    return render(request, 'show_student.html', {
+        'student': student,
     })
