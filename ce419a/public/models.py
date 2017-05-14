@@ -1,8 +1,11 @@
+from django.core.validators import RegexValidator
 from django.db import models
 
 
 class Student(models.Model):
-    stdid = models.CharField(max_length=8)
+    stdid = models.CharField(max_length=8, validators=[
+        RegexValidator(regex=r'[7-9]\d{7}', message='یک شماره دانشجویی معتبر وارد کنید'),
+    ])
     first_name = models.CharField(max_length=1000)
     last_name = models.CharField(max_length=1000)
     year = models.IntegerField(default=0)

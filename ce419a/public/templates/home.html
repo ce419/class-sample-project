@@ -1,18 +1,8 @@
-<head>
-    <title>CE419</title>
-    <style>
-        .col1 {
-            display: inline-block;
-            width: 32%;
-            padding: 5px;
-            box-sizing: border-box;
-            vertical-align: top;
-        }
-    </style>
-</head>
-<body>
-<h1>{{ title }}</h1>
+{% extends 'base.html' %}
 
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
 <div class="col1">
     <h2>Students</h2>
     <h4><a href="/students/add">Add Student</a></h4>
@@ -39,3 +29,4 @@
     <h2>Grades</h2>
 </div>
 </body>
+{% endblock %}

@@ -1,5 +1,7 @@
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
+from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
 
 from ce419a.public.forms import StudentForm
@@ -26,11 +28,16 @@ def home(request):
     })
 
 
+@login_required
 def student_add(request):
+    # request.user.is_authenticated()
+    # request.user.is_superuser
     if request.method == 'POST':
         form = StudentForm(request.POST)
         if form.is_valid():
-            s = form.save()
+            form.save()
+            messages.success(request, 'با موفقیت اضافه شد.')
+            return HttpResponseRedirect('/')
     else:
         form = StudentForm()
 
